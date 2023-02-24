@@ -56,7 +56,7 @@ y para eliminar un proceso utilizamos el comando
 
 `pm2 delete azure_dev`
 
-una aclaracion importante, es que por defecto CAP levanta los servicios en el puerto 4004 (este utilizamos para productivo), entonces en el directorio de nuestro servicio que apunta al blob de dev, se modifico el script start del package.json reemplazando el "cds run" por:
+una aclaracion importante, es que por defecto CAP levanta los servicios en el puerto 4004, entonces para poder correr una segunda instancia, es necesario que en el directorio de nuestro servicio, el cual apunta al blob de dev, se modifique el script start del package.json reemplazando el "cds run" por:
 
  `"start": "cds run --port 3000"`
 
