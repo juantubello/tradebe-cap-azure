@@ -20,9 +20,9 @@ File or Folder | Purpose
 - Start adding content, for example, a [db/schema.cds](db/schema.cds).
 
 
-## Deploy 
+# Deploy 
 
-# Folders
+## Folders
 
 Actualmente se encuentran corriendo 2 instancias de la aplicacion dentro del servidor
 
@@ -37,7 +37,7 @@ dentro de cada uno a nivel root, se crearon sus respectivas variables de entorno
 
 para que una apunte al blob de dev y otra al blob de produccion.
 
-# PM2
+## PM2
 
 Para tener 2 instancias del servicio corriendo en fondo, utilizamos el manegador de procesos PM2, el cual nos permite correr varias instancias de aplicaciones en fondo y tambien nos da la posibilidad de enlazar
 las mismas al arranque del servidor, en otras palabras, ante una caída o reinicio del mismo, nuestros servicios vuelven a estar disponibles de manera automatica. 
