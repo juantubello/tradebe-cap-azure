@@ -45,7 +45,7 @@ To start a process, we run the following command within our project folder, whic
 To view the running processes, we use the command:
 `pm2 ls`
 
-[![pm2-ls.png](https://i.postimg.cc/DzbsKS74/pm2-ls.png)](https://postimg.cc/FfN1ysdh)
+[![pm2-ls.png](https://i.postimg.cc/sDXzT8P1/pm2-ls.png)](https://postimg.cc/vDpCB0Nd)
 
 To delete a process, we use the command:
 `pm2 delete azure_dev`
