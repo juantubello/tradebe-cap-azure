@@ -31,7 +31,7 @@ To achieve this, the repository was cloned into 2 directories:
 - azure_service_dev
 - azure_service_prd
 
-In each directory at the root level, their respective environment variables (.env) were created so that one points to the development blob and the other to the production blob.
+In each directory at the root level, their respective environment variables (.env) were created so that one go vs development blob and the other vs production blob.
 
 [![dev-env.png](https://i.postimg.cc/t4cPf3GH/dev-env.png)](https://postimg.cc/NK152r0N)
 
