@@ -24,18 +24,16 @@ File or Folder | Purpose
 
 ## Folders
 
-Actualmente se encuentran corriendo 2 instancias de la aplicacion dentro del servidor
+Actualmente se encuentran corriendo 2 instancias de la aplicacion dentro del servidor.
 
 Para lograr esto, se clono el repositorio dentro de 2 directorios:
 
 - azure_service_dev
 - azure_service_prd
 
-dentro de cada uno a nivel root, se crearon sus respectivas variables de entorno (.env)
+dentro de cada uno a nivel root, se crearon sus respectivas variables de entorno (.env) para que una apunte al blob de dev y otra al blob de produccion.
 
 [![dev-env.png](https://i.postimg.cc/t4cPf3GH/dev-env.png)](https://postimg.cc/NK152r0N)
-
-para que una apunte al blob de dev y otra al blob de produccion.
 
 ## PM2
 
@@ -43,17 +41,14 @@ Para tener 2 instancias del servicio corriendo en fondo, utilizamos el manegador
 las mismas al arranque del servidor, en otras palabras, ante una caída o reinicio del mismo, nuestros servicios vuelven a estar disponibles de manera automatica. 
 
 para dar de alta un proceso, dentro de nuestra carpeta del proyecto corremos el comando, el cual va a dejar el servicio corriendo en fondo:
-
 `pm2 start npm --name "azure_dev" -- start --no-autorestart`
 
-para ver los procesos corriendo, utilizamos el comando
-
+para ver los procesos corriendo, utilizamos el comando:
 `pm2 ls`
 
 [![pm2-ls.png](https://i.postimg.cc/DzbsKS74/pm2-ls.png)](https://postimg.cc/FfN1ysdh)
 
-y para eliminar un proceso utilizamos el comando
-
+para eliminar un proceso utilizamos el comando:
 `pm2 delete azure_dev`
 
 una aclaracion importante, es que por defecto CAP levanta los servicios en el puerto 4004, entonces para poder correr una segunda instancia, es necesario que en el directorio de nuestro servicio, el cual apunta al blob de dev, se modifique el script start del package.json reemplazando el "cds run" por:
