@@ -24,37 +24,35 @@ File or Folder | Purpose
 
 ## Folders
 
-Actualmente se encuentran corriendo 2 instancias de la aplicacion dentro del servidor.
+Currently, there are 2 instances of the application running within the server.
 
-Para lograr esto, se clono el repositorio dentro de 2 directorios:
+To achieve this, the repository was cloned into 2 directories:
 
-- azure_service_dev
-- azure_service_prd
-
-dentro de cada uno a nivel root, se crearon sus respectivas variables de entorno (.env) para que una apunte al blob de dev y otra al blob de produccion.
+azure_service_dev
+azure_service_prd
+In each directory at the root level, their respective environment variables (.env) were created so that one points to the development blob and the other to the production blob.
 
 [![dev-env.png](https://i.postimg.cc/t4cPf3GH/dev-env.png)](https://postimg.cc/NK152r0N)
 
 ## PM2
 
-Para tener 2 instancias del servicio corriendo en fondo, utilizamos el manegador de procesos PM2, el cual nos permite correr varias instancias de aplicaciones en fondo y tambien nos da la posibilidad de enlazar
-las mismas al arranque del servidor, en otras palabras, ante una caída o reinicio del mismo, nuestros servicios vuelven a estar disponibles de manera automatica. 
+To have 2 instances of the service running in the background, we use the process manager PM2, which allows us to run multiple instances of applications in the background and also gives us the possibility to link them to the server startup. In other words, in the event of a server crash or restart, our services are automatically available again.
 
-para dar de alta un proceso, dentro de nuestra carpeta del proyecto corremos el comando, el cual va a dejar el servicio corriendo en fondo:
+To start a process, we run the following command within our project folder, which will keep the service running in the background:
 `pm2 start npm --name "azure_dev" -- start --no-autorestart`
 
-para ver los procesos corriendo, utilizamos el comando:
+To view the running processes, we use the command:
 `pm2 ls`
 
 [![pm2-ls.png](https://i.postimg.cc/DzbsKS74/pm2-ls.png)](https://postimg.cc/FfN1ysdh)
 
-para eliminar un proceso utilizamos el comando:
+To delete a process, we use the command:
 `pm2 delete azure_dev`
 
-una aclaracion importante, es que por defecto CAP levanta los servicios en el puerto 4004, entonces para poder correr una segunda instancia, es necesario que en el directorio de nuestro servicio, el cual apunta al blob de dev, se modifique el script start del package.json reemplazando el "cds run" por:
+An important clarification is that by default CAP runs services on port 4004, so in order to run a second instance, it is necessary to modify the start script of the package.json file in the directory of our service that points to the dev blob by replacing `"cds run"` with:
 
  `"start": "cds run --port 3000"`
 
 [![dev-package.png](https://i.postimg.cc/G2wD3bp7/dev-package.png)](https://postimg.cc/sBmxwd77)
 
-de esta manera le indicamos a CAP que debe correr la aplicacion en el puerto 3000
+in this way, we indicate to CAP that it should run the application on port 3000.
