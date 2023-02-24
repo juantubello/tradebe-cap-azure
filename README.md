@@ -37,7 +37,7 @@ In each directory at the root level, their respective environment variables (.en
 
 ## PM2
 
-To have 2 instances of the service running in the background, we use the process manager PM2, which allows us to run multiple instances of applications in the background and also gives us the possibility to bind them to the server startup. In other words, in the event of a server crash or restart, our services are automatically available again.
+To have 2 instances of the service running in the background, we use the process manager PM2, which allows us to run multiple instances of applications in the background and also gives us the possibility to bind them to the server startup. In other words, in a server crash or restart, our services are automatically available again.
 
 To start a process, we run the following command within our project folder, which will keep the service running in the background:
 `pm2 start npm --name "azure_dev" -- start --no-autorestart`
